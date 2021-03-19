@@ -1,0 +1,25 @@
+<!--Login Page Start-->
+<app-dashboard-layout>
+  <div class="border-bottom mb-3">
+    <h4 class="mb-2 card-title">Login</h4>
+    <p>Welcome back, please login to your account.</p>
+  </div>
+  <form [formGroup]="loginForm" #form="ngForm">
+    <ng-container *ngFor="let control of controls">
+      <app-form-control [formControlName]="control.name" [type]="control.type" [placeholder]="control.placeholder"
+        [isFormSubmitted]="form.submitted">
+      </app-form-control>
+    </ng-container>
+    <app-alert></app-alert>
+    <div class="row">
+      <div class="col-12 d-flex justify-content-center my-2">
+        <app-button class="px-4" type="submit" (submit)="onSubmit()">Login</app-button>
+      </div>
+      <div class="col-12 d-flex justify-content-center my-2">
+        <span class="font-small-3">Don't have an account? <a
+            [routerLink]=" ['/dashboard', 'register' ]">Register</a></span>
+      </div>
+    </div>
+  </form>
+</app-dashboard-layout>
+<!--Login Page End-->
