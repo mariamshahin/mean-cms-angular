@@ -5,6 +5,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { QuillModule } from 'ngx-quill';
 import { UsersRoutingModule } from './users-routing.module';
 import { SharedModule } from 'app/shared/shared.module';
 import {
@@ -29,6 +30,7 @@ import { ViewSingleUserComponent } from './pages/view-single-user/view-single-us
     ReactiveFormsModule,
     ReactiveComponentModule,
     NgxDatatableModule,
+    QuillModule,
     StoreModule.forFeature(featureKey, reducerToken),
     EffectsModule.forFeature(moduleEffects),
   ],

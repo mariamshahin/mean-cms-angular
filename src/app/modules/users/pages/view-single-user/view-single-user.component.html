@@ -81,9 +81,10 @@
                                                 <div class="post-content">{{post.title}}</div>
                                             </td>
                                             <td>
-                                                <div class="post-content">
-                                                    {{post.content}}
-                                                </div>
+
+                                                <quill-view-html class="post-content" [content]="post.content"
+                                                    theme="snow"></quill-view-html>
+
                                             </td>
                                             <td>{{post.created_at | date: 'dd/MM/yyyy'}}</td>
                                             <td>{{post.updated_at | date: 'dd/MM/yyyy'}}</td>

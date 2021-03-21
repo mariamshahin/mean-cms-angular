@@ -1,1 +1,17 @@
 /* You can add global styles to this file, and also import other style files */
+
+.post-content {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-height: 100px;
+  min-width: 100px;
+  max-width: 200px;
+}
+
+.post-form label {
+  font-size: 0.9rem;
+  font-weight: 600;
+}

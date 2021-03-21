@@ -7,6 +7,7 @@ import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { ToastrModule } from 'ngx-toastr';
+import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import {
   PerfectScrollbarModule,
   PERFECT_SCROLLBAR_CONFIG,
@@ -46,6 +47,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     NgxSpinnerModule,
     ToastrModule.forRoot(),
     QuillModule.forRoot(),
+    AnimateOnScrollModule.forRoot(),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: !environment.production,

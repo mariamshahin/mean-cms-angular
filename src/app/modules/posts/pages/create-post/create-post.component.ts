@@ -15,7 +15,7 @@ export class CreatePostComponent implements OnInit {
   createPostForm = new FormGroup({
     title: new FormControl('', [Validators.required]),
     content: new FormControl('', [Validators.required]),
-    image: new FormControl(''),
+    image: new FormControl('', [Validators.required]),
   });
 
   constructor(private store: Store) {}
@@ -36,6 +36,7 @@ export class CreatePostComponent implements OnInit {
 
   imageCrop(e) {
     this.croppedImage = e;
+    this.createPostForm.controls.image.setErrors(null);
   }
 
   formSubmit() {

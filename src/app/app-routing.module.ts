@@ -12,7 +12,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'posts',
+    redirectTo: 'blog',
     pathMatch: 'full',
   },
   {
@@ -29,7 +29,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    redirectTo: 'posts',
+    redirectTo: 'blog',
   },
 ];
 

@@ -43,6 +43,7 @@
     "core-js": "^3.6.5",
     "express": "^4.17.1",
     "ng-click-outside": "^7.0.1",
+    "ng2-animate-on-scroll": "^2.2.1",
     "ng2-file-upload": "^1.4.0",
     "ngrx-store-localstorage": "^10.1.2",
     "ngx-device-detector": "^2.0.5",

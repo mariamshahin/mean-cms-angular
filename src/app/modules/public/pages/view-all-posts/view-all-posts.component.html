@@ -1,27 +1,30 @@
 <app-public-layout>
     <ng-container *ngrxLet="postsData$ as posts">
-        <section id="gallery-hover-effects" class="p-5">
-            <div class="row justify-content-center">
-                <div class="post-wrapper col-8 col-md-4 col-lg-3 p-0 mx-4 my-3" *ngFor="let post of posts">
-                    <div class="card h-100">
-                        <div class="card-content">
-                            <div class="card-body p-0" itemscope itemtype="http://schema.org/ImageGallery">
-                                <div class="grid-hover">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <figure class="effect-lily">
-                                                <img *ngIf="post?.image_url;else placeholder"
-                                                    [src]="apiUrl + '/' + post.image_url" [alt]="post.title" />
-                                                <figcaption>
-                                                    <div>
-                                                        <h2 class="text-truncate">{{post.title}}</h2>
-                                                        <p>Read Article</p>
-                                                    </div>
-                                                </figcaption>
-                                            </figure>
-                                            <div class="content text-truncate">
+        <section class="p-5">
+            <div class="row match-height justify-content-center" [@cardAnimation]="posts?.length">
+                <div class="col-12 col-lg-10 col-xl-8 hide" animateOnScroll animationName="animated fadeIn"
+                    *ngFor="let post of posts">
+                    <div class="card overflow-hidden">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 col-md-4">
+                                <div class="card-img"
+                                    [style]="'background: url(' + apiUrl + '/' + post.image_url + ') no-repeat center/cover;'">
+                                </div>
+                            </div>
+                            <div class="col-12 col-sm-6 col-md-8 d-flex justify-content-start">
+                                <div class="card-body px-0">
+                                    <div class="text-left">
+                                        <div class="">
+                                            <a [routerLink]="['/blog', post._id]">
+                                                <h4 class="card-title text-primary mb-2 px-2">{{post.title}}</h4>
+                                            </a>
+                                            <div class="card-text">
                                                 <quill-view-html [content]="post.content" theme="snow">
                                                 </quill-view-html>
+                                                <a [routerLink]="['/blog', post._id]"
+                                                    class="text-grey font-small-3 px-2">Read more..</a>
+                                                <p class="text-muted font-small-3 p-2">Last update {{post.updated_at |
+                                                    date: 'dd/MM/yyyy'}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -33,5 +36,4 @@
             </div>
         </section>
     </ng-container>
-    <ng-template #placeholder><img src="https://via.placeholder.com/100/DBDEE5/6c757d?text=+"></ng-template>
 </app-public-layout>

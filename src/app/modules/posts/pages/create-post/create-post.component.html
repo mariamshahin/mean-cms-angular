@@ -9,10 +9,9 @@
         <div class="card">
             <div class="card-content">
                 <div class="card-body">
-                    <form [formGroup]="createPostForm" #form="ngForm">
+                    <form class="post-form" [formGroup]="createPostForm" #form="ngForm">
                         <div class="form-group col-12 my-3">
-                            <label class="text-bold-600 mb-3" for="title">Post Title: <span
-                                    class="text-danger">*</span></label>
+                            <label class="mb-3" for="title">Post Title: <span class="text-danger">*</span></label>
                             <textarea rows="2" class="form-control mb-2" placeholder="Enter post title.."
                                 formControlName="title"
                                 [ngClass]="{ 'is-invalid': form.submitted && f.title.invalid, 'is-valid': form.submitted && !f.title.invalid }"
@@ -22,8 +21,7 @@
                                 title is required</div>
                         </div>
                         <div class="form-group col-12 my-3">
-                            <label class="text-bold-600 mb-3" for="content">Post Content: <span
-                                    class="text-danger">*</span></label>
+                            <label class="mb-3" for="content">Post Content: <span class="text-danger">*</span></label>
                             <quill-editor formControlName="content" placeholder="Enter post content.."
                                 [ngClass]="{ 'is-invalid': form.submitted && f.content.invalid, 'is-valid': form.submitted && !f.content.invalid }"
                                 [required]="true" [sanitize]="true">
@@ -33,12 +31,12 @@
                                 content is required</div>
                         </div>
                         <div>
-                            <label class="ml-3">Post Image:</label>
+                            <label class="ml-3 mb-3">Post Image: <span class="text-danger">*</span></label>
                             <div class="row">
-                                <div class="col-12 col-md-6 px-4 my-3">
+                                <div class="col-12 col-md-6 px-4">
                                     <app-file-upload (selectFile)="selectFile($event)"></app-file-upload>
                                 </div>
-                                <div class="col-12 col-md-6 px-4 my-3">
+                                <div class="col-12 col-md-6 px-4">
                                     <app-image-cropper [imageFile]="imageFile" (imageCrop)="imageCrop($event)"
                                         *ngIf="imageFile;else preview">
                                     </app-image-cropper>
@@ -47,6 +45,9 @@
                                     </ng-template>
                                 </div>
                             </div>
+                            <div *ngIf="form.submitted && (f.image.invalid || f.image.errors?.required)"
+                                class="help-block text-danger ml-3"> <i class="ft-alert-circle align-middle"></i> Post
+                                Image is required</div>
                         </div>
                         <app-alert></app-alert>
                         <div class="d-flex justify-content-center mt-3">

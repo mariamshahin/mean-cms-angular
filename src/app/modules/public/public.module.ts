@@ -6,6 +6,7 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ReactiveComponentModule } from '@ngrx/component';
 import { QuillModule } from 'ngx-quill';
+import { AnimateOnScrollModule } from 'ng2-animate-on-scroll';
 import { PublicRoutingModule } from './public-routing.module';
 import { SharedModule } from 'app/shared/shared.module';
 import {
@@ -31,6 +32,7 @@ import { ViewSinglePostComponent } from './pages/view-single-post/view-single-po
     ReactiveFormsModule,
     ReactiveComponentModule,
     QuillModule,
+    AnimateOnScrollModule,
     StoreModule.forFeature(featureKey, reducerToken),
     EffectsModule.forFeature(moduleEffects),
   ],

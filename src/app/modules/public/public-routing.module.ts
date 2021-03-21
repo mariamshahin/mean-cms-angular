@@ -9,11 +9,11 @@ const routes: Routes = [
     path: '',
     children: [
       {
-        path: 'posts',
+        path: 'blog',
         component: ViewAllPostsComponent,
       },
       {
-        path: 'posts/:id',
+        path: 'blog/:id',
         component: ViewSinglePostComponent,
       },
     ],
