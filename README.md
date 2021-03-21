@@ -1,3 +1,6 @@
+## MEAN CMS
+
+Role based content management system
 
 
 ## Dashboard Access
