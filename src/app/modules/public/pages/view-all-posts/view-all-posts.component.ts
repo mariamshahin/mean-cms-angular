@@ -1,10 +1,14 @@
-import { Component, Inject, OnInit, OnDestroy } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  trigger,
+  style,
+  animate,
+  transition,
+  query,
+  stagger,
+} from '@angular/animations';
 import { select, Store } from '@ngrx/store';
 import { map } from 'rxjs/operators';
-import { DatatableComponent, ColumnMode } from '@swimlane/ngx-datatable';
-import { DataTableColumn, Role, UserData } from 'app/shared/models/data.model';
-import { selectAdmin } from 'app/modules/admin/store';
-import { ModalComponent } from 'app/shared/components/ui-elements/modal/modal.component';
 import { selectPublic } from '../../store';
 import { viewPosts } from '../../store/view-all-posts/view-all-posts.actions';
 
@@ -12,6 +16,22 @@ import { viewPosts } from '../../store/view-all-posts/view-all-posts.actions';
   selector: 'app-view-all-posts',
   templateUrl: './view-all-posts.component.html',
   styleUrls: ['./view-all-posts.component.scss'],
+  animations: [
+    trigger('cardAnimation', [
+      transition('* => *', [
+        query(
+          ':enter',
+          [
+            style({ opacity: 0, transform: 'translateY(200%)' }),
+            stagger(50, [
+              animate('1s ease-out', style({ opacity: 1, transform: 'none' })),
+            ]),
+          ],
+          { optional: true }
+        ),
+      ]),
+    ]),
+  ],
 })
 export class ViewAllPostsComponent implements OnInit {
   postsData$ = this.store.pipe(

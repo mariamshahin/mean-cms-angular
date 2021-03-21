@@ -4,13 +4,13 @@
     || user.auth.data?.user?.role === roles.author
     || user.auth.data?.user?.role === roles.contributer">
         <div class="col-12 m-2">
-            <h4>Your Activity</h4>
+            <h4 class="text-primary">Your Activity</h4>
         </div>
-        <div class="col-12" [ngClass]="{'col-md-6': user.auth.data?.user?.role !== roles.contributer}"
+        <div class="col-12" [ngClass]="{'col-lg-6': user.auth.data?.user?.role !== roles.contributer}"
             *ngIf="user.auth.data?.user?.role !== roles.contributer">
             <div class="card">
                 <div class="card-header pb-2">
-                    <h4 class="card-title mb-1">Latest Pupblished Posts</h4>
+                    <h4 class="card-title mb-1">Latest Published Posts</h4>
                 </div>
                 <div class="card-content">
                     <div class="card-body p-0">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12" [ngClass]="{'col-md-6': user.auth.data?.user?.role !== roles.contributer}">
+        <div class="col-12" [ngClass]="{'col-lg-6': user.auth.data?.user?.role !== roles.contributer}">
             <div class="card">
                 <div class="card-header pb-2">
                     <h4 class="card-title mb-1">Latest Saved Drafts</h4>
@@ -99,9 +99,9 @@
     <div class="row mt-4"
         *ngIf="user.auth.data?.user?.role === roles.admin || user.auth.data?.user?.role === roles.editor">
         <div class="col-12 m-2">
-            <h4>Users Activity</h4>
+            <h4 class="text-primary">Users Activity</h4>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
             <div class="card">
                 <div class="card-header pb-2">
                     <h4 class="card-title mb-1">Latest Users Posts</h4>
@@ -158,7 +158,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-lg-6">
             <div class="card">
                 <div class="card-header pb-2">
                     <h4 class="card-title mb-1">Latest Users Drafts</h4>
@@ -233,10 +233,14 @@
         </div>
     </div>
     <ng-template #loading>
-        <span class="text-center m-2">Loading...</span>
+        <div class="d-flex justify-content-center">
+            <span class="text-center m-2">Loading...</span>
+        </div>
     </ng-template>
     <ng-template #noPosts>
-        <span class="text-center m-2">No Posts Found</span>
+        <div class="d-flex justify-content-center">
+            <span class="text-center m-2">No Posts Found</span>
+        </div>
     </ng-template>
     <ng-template #placeholder><img src="https://via.placeholder.com/100/DBDEE5/6c757d?text=No+Image">
     </ng-template>
